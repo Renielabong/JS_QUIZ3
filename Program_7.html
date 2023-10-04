@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add, Subtract and Multiply Example</title>
+   <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<h2>ADDING, SUBTRACTING AND MULTIPLICATION</h2>
+<div class="container">
+    <label for="num1">Number 1:</label>
+    <input type="number" id="num1"  onfocus="this.value=''" value="0">
+    
+    <label for="num2">Number 2:</label>
+    <input type="number" id="num2" onfocus="this.value=''" value="0"><br/><br/>
+
+    <button onclick="addNumbers()">Add</button> 
+    <button onclick="ClearFields()">Clear</button><br/><br/>
+    <h3>Result: <span id="result"></span></h3>
+</div>
+
+<p>Submitted by: Reniel Abong</p>
+<a href="index.html">Back to Choices</a>
+
+<script>
+    function addNumbers() {
+        var num1 = parseFloat(document.getElementById('num1').value);
+        var num2 = parseFloat(document.getElementById('num2').value);
+
+    if (isNaN(num1) || isNaN(num2)) {
+        alert("Please enter valid numbers in both fields.");
+        return;
+    }
+
+    if (num1 == num2){
+
+        var result = num1 - num2;
+        document.getElementById('result').innerHTML =  result ;
+        document.getElementById('result').style.color = "white";
+    }
+
+    else if (num1 > num2){
+
+        var result = num1 + num2;
+        document.getElementById('result').innerHTML =  result ;
+        document.getElementById('result').style.color = "red";
+    }
+
+    else if (num1 < num2){
+
+            var result = num1 * num2;
+            document.getElementById('result').innerHTML =  result ;
+            document.getElementById('result').style.color = "green";
+        }
+    }
+
+function ClearFields() {
+
+     document.getElementById("num1").value = "0";
+     document.getElementById("num2").value = "0";
+     document.getElementById("result").innerHTML = "";
+}
+
+</script>
+</body>
+</html>

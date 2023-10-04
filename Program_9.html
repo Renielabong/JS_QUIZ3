@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade</title>
+   <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<h2>Equivalent Grade</h2>
+<div class="container">
+    <label for="Num1">Score:</label>
+    <input type="number" id="num1"  onfocus="this.value=''" value="0">
+    
+    <label for="Num1">Total Score:</label>
+    <input type="number" id="num2" onfocus="this.value=''" value="0"><br>
+
+    <button onclick="computeAve()">Compute</button> 
+    <button onclick="ClearFields()">Clear</button><br/><br/>
+    <h4>Remark: <span id="remark">-</span></h4>
+</div>
+
+<p>Submitted by: Reniel Abong</p>
+<a href="index.html">Back to Choices</a>
+
+<script>
+    function computeAve() {
+        var num1 = parseFloat(document.getElementById('num1').value);
+	    var num2 = parseFloat(document.getElementById('num2').value);
+
+  	if (isNaN(num1) || isNaN(num2)) {
+        alert("Please enter valid grades.");
+        return;
+   	 }
+
+    if (num1 < 0 || num2 < 0) {
+        alert("Invalid Input");
+        return;
+    }
+
+    if (num1 > num2){
+        alert("Score should not exceed to the Total Score")
+    }
+
+        var grade = (num1/num2) * 60 + 40;
+
+    if (grade < 1 || grade > 100){
+        alert("Your grade should not exceed in 100")
+        return;
+    }
+
+	if (grade>=78 && grade <=80){
+	    document.getElementById('remark').textContent = "Not Bad";
+	    document.getElementById('remark').style.color = "green";
+	}
+    else if (grade>=81 && grade <=85){
+	    document.getElementById('remark').textContent = "Almost Good";
+	    document.getElementById('remark').style.color = "blue";
+	}
+    else if (grade>=86 && grade <=90){
+	    document.getElementById('remark').textContent = "Good";
+	    document.getElementById('remark').style.color = "Red";
+	}
+    else if (grade>=91 && grade <=95){
+	    document.getElementById('remark').textContent = "Very Good";
+	    document.getElementById('remark').style.color = "Yellow";
+	}
+    else if (grade>=96 && grade <=100){
+	    document.getElementById('remark').textContent = "Brilliant";
+	    document.getElementById('remark').style.color = "Pink";
+	}
+	else {
+	    document.getElementById('remark').textContent = "Sorry, try again next sem...";
+	    document.getElementById('remark').style.color = "White";
+	}
+
+   }
+
+    function ClearFields() {
+
+        document.getElementById("num1").value = "0";
+        document.getElementById("num2").value = "0";
+        document.getElementById("remark").innerHTML = "";
+    }
+
+</script>
+</body>
+</html>

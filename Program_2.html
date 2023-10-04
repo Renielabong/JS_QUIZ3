@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Positive/Negative</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+    <h2> Positive or Negative Number</h2>
+    <div class="container">
+    <label for="Num1">ENTER A NUMBER: </label>
+    <input type="number" id="Num"/><br/>
+
+    <button onclick="check()">CHECK</button>
+    <button onclick="ClearFields()">Clear</button><br/><br/>
+    <h1 id="sagot"> ANSWER </h1>
+    </div>
+    <p>Submitted by: Reniel Abong</p>
+    <a href="index.html"> Back to Choices </a>
+    <script>
+        function check()
+        {
+            var num = parseFloat(document.getElementById('Num').value);
+
+            if (num>0){
+                document.getElementById('sagot').innerHTML = 'The number is positive' ;
+            }
+            else {
+                document.getElementById('sagot').innerHTML = 'The number is negative';
+            }
+        
+        }
+        function ClearFields() {
+
+            document.getElementById("Num").value = "";
+            document.getElementById("result").innerHTML = "0";
+        }
+    </script>
+</body>
+</html>
